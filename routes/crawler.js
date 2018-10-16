@@ -51,7 +51,7 @@ router.post('/crawl', (req, res) => {
     const browser = await puppeteer.launch({
       headless: true,
       args: [
-        `--no-sandbox --window-size=${width},${height}`,
+        `--window-size=${width},${height}`, '--no-sandbox', '--disable-setuid-sandbox',
       ],
     });
     const timeout = 4 * 30000;
