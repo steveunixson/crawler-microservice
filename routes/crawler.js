@@ -103,10 +103,12 @@ router.post('/crawl', (req, res) => {
             const phone = number.replace(/(\r\n\t|\n|\r\t)/gm, ' ', ' ').split('Пожалуйста, скажите, что узнали номер в 2ГИС').join('');
             const name = await pageNew.evaluate(() => document.querySelector('h1.cardHeader__headerNameText').innerText);
             const Address = await pageNew.evaluate(() => document.querySelector('address.card__address').innerText);
+            const url = await page.url();
             items.push({
               phoneNumber: phone,
               companyName: name,
               address: Address,
+              pageUrl: url,
             });
             await pageNew.close();
             await log.info(`Company collected: ${name}`);
