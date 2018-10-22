@@ -1,10 +1,11 @@
 require('dotenv').config();
 const express = require('express');
 const path = require('path');
-const cookieParser = require('cookie-parser');
 const formData = require('express-form-data');
 const morgan = require('morgan');
 const os = require('os');
+const bodyParser = require('body-parser');
+const ip = require('ip');
 const log = require('./utils/log')(module);
 const config = require('./config/config');
 const crawler = require('./routes/crawler');
@@ -17,6 +18,8 @@ const options = {
   autoClean: false,
 };
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(formData.parse(options));
 // clear from the request and delete all empty files (size == 0)
 app.use(formData.format());
@@ -31,5 +34,5 @@ app.use(morgan('dev'));
 app.use(crawler);
 app.use(express.static(path.join(__dirname, 'public')));
 app.listen(port, () => {
-  log.info(config.colors.FgMagenta, `Bonobo 2gis gather now Running On : ${port}`);
+  log.info(config.colors.FgMagenta, `Bonobo 2gis gather now Running On : http://${ip.address()}:${port}`);
 });

@@ -2,12 +2,48 @@
 
 <head>
   <title>Express</title>
-  <link rel="stylesheet" href="/stylesheets/style.css">
+  <link rel="stylesheet" href="stylesheets/style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.4/js/tether.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.5.2/qs.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="javascripts/index.js"></script>
 </head>
 
 <body>
-  <h1>Express</h1>
-  <p>Welcome to Express</p>
+<div class="col-xs-1" align="center">
+  <div class="form-group row">
+    <label for="example-search-input" class="col-2 col-form-label">Wholesale</label>
+    <div class="col-5">
+      <label for="inputState"></label><select id="inputState" class="form-control">
+        <option selected>true</option>
+        <option>false</option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="example-search-input" class="col-2 col-form-label">Search</label>
+    <div class="col-5">
+      <input class="form-control" type="search" value=""  id="example-search-input">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="example-email-input" class="col-2 col-form-label">Email</label>
+    <div class="col-5">
+      <input class="form-control" type="email" value="" id="example-email-input">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="example-url-input" class="col-2 col-form-label">URL</label>
+    <div class="col-5">
+      <input class="form-control" type="url" value="" id="example-url-input">
+    </div>
+    <button type="button" onclick="postUser()" class="btn btn-primary">Start Crawltask</button>
+    <script src="javascripts/index.js"></script>
+  </div>
+</div>
 </body>
 
 </html>
