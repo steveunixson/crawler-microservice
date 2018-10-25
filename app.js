@@ -9,6 +9,7 @@ const ip = require('ip');
 const log = require('./utils/log')(module);
 const config = require('./config/config');
 const crawler = require('./routes/crawler');
+const youlaCrawler = require('./routes/youla-crawler');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -32,6 +33,7 @@ app.use(morgan('dev'));
 // app.use(express.urlencoded({ extended: false }));
 // app.use(cookieParser());
 app.use(crawler);
+app.use(youlaCrawler);
 app.use(express.static(path.join(__dirname, 'public')));
 app.listen(port, () => {
   log.info(config.colors.FgMagenta, `Bonobo 2gis gather now Running On : http://${ip.address()}:${port}`);
