@@ -6,7 +6,7 @@ const ps = require('ps-node');
 const nodemailer = require('nodemailer');
 const json2csv = require('json2csv').parse;
 
-const fields = ['contactName', 'contactPhone'];
+const fields = ['contactName', 'contactNumber'];
 const opts = { fields };
 const log = require('../utils/log')(module);
 
