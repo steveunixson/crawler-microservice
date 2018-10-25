@@ -90,10 +90,6 @@ router.post('/crawl', (req, res) => {
     }
     await page.click(submitButton);
     await log.info(`clicked on ${submitButton}`);
-    await page.waitForSelector('div.filters__section._tag_');
-    if (await page.evaluate(() => document.getElementsByName('type_of_business_type_wholesale')[0]) === undefined || null) {
-      log.error(`EXCEPTION CAUGHT: ${search.query} at ${url.targetUrl} is not wholesale!`);
-    }
     if (saleType.whole === 'true') {
       await page.$$eval('label.checkbox._inline', label => label[5].click());
       await log.info('clicked on wholesale');
