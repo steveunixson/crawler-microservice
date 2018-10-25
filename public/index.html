@@ -2,6 +2,7 @@
 
 <head>
   <title>Express</title>
+  <meta charset="UTF-8">
   <link rel="stylesheet" href="stylesheets/style.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.4/js/tether.min.js"></script>
@@ -14,6 +15,7 @@
 
 <body>
 <div class="col-xs-1" align="center">
+  <a class="col-5">2gis</a>
   <div class="form-group row">
     <label for="example-search-input" class="col-2 col-form-label">Wholesale</label>
     <div class="col-5">
@@ -43,6 +45,28 @@
     <button type="button" onclick="postUser()" class="btn btn-primary">Start Crawltask</button>
     <script src="javascripts/index.js"></script>
   </div>
+  <a class="col-5">Youla</a>
+  <div class="form-group row">
+    <label for="email-input-youla" class="col-2 col-form-label">Email</label>
+    <div class="col-5">
+      <input class="form-control" type="email" value="" id="email-input-youla">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="example-search-input" class="col-2 col-form-label">Search</label>
+    <div class="col-5">
+      <label for="inputYoula"></label>
+      <select id="inputYoula" class="form-control">
+        <option selected value="https://youla.ru/rostov-na-donu/zhenskaya-odezhda">Женский градероб</option>
+        <option value="https://youla.ru/rostov-na-donu/muzhskaya-odezhda">Мужской гардероб</option>
+        <option value="https://youla.ru/rostov-na-donu/detskaya-odezhda">Детский гардероб</option>
+        <option value="https://youla.ru/rostov-na-donu/detskie">Детские товары</option>
+        <option value="https://youla.ru/rostov-na-donu/detskie">Детские товары</option>
+        <option value="https://youla.ru/rostov-na-donu/hehndmejd">Хэндмейд</option>
+      </select>
+    </div>
+    <button type="button" onclick="postYoula()" class="btn btn-primary">Start Crawltask</button>
+    <script src="javascripts/index.js"></script>
 </div>
 </body>
 
