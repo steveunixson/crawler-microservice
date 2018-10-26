@@ -64,7 +64,7 @@ router.post('/youla-crawl', (req, res) => {
   }
   const scrape = async () => {
     const browser = await puppeteer.launch({
-      headless: true,
+      headless: false,
       args: [
         `--window-size=${width},${height}`, '--no-sandbox', '--disable-setuid-sandbox',
       ],
@@ -99,7 +99,7 @@ router.post('/youla-crawl', (req, res) => {
           await pageNew.waitFor(1000);
           const modalClass = await pageNew.evaluate(() => document.querySelector('[data-test-component~="ProductPhoneNumberModal"]').className);
           await log.debug(modalClass);
-          const name = await pageNew.evaluate(modalClass => document.getElementsByClassName(modalClass)[0].children[0].innerText, modalClass);
+          const name = await pageNew.evaluate(modalClass => document.getElementsByClassName(modalClass)[0].children[0].children[1].innerText, modalClass);
           const number = await pageNew.evaluate(modalClass => document.getElementsByClassName(modalClass)[0].children[2].children[0].innerText, modalClass);
           items.push({
             contactName: name,
@@ -122,11 +122,11 @@ router.post('/youla-crawl', (req, res) => {
   scrape().then((value) => {
     const content = JSON.stringify(value);
     try {
-      fs.writeFile(`${homeDir}/${crawlerDir}/${search.query}_${milliseconds}.json`, content, 'utf8', (err) => {
+      fs.writeFile(`${homeDir}/${crawlerDir}/${milliseconds}.json`, content, 'utf8', (err) => {
         if (err) {
           return log.error(err);
         }
-        log.info(`JSON file was created at: ${homeDir}/${crawlerDir}/${search.query}_${milliseconds}.json`);
+        log.info(`JSON file was created at: ${homeDir}/${crawlerDir}/${milliseconds}.json`);
         return 0;
       });
     } catch (e) {
@@ -134,11 +134,11 @@ router.post('/youla-crawl', (req, res) => {
     }
     try {
       const csv = json2csv(value, opts);
-      fs.writeFile(`${homeDir}/${crawlerDir}/${search.query}_${milliseconds}.csv`, csv, 'utf8', (err) => {
+      fs.writeFile(`${homeDir}/${crawlerDir}/${milliseconds}.csv`, csv, 'utf8', (err) => {
         if (err) {
           return log.error(err);
         }
-        log.info(`CSV file was created at: ${homeDir}/${crawlerDir}/${search.query}_${milliseconds}.csv | Sending Email`);
+        log.info(`CSV file was created at: ${homeDir}/${crawlerDir}/${milliseconds}.csv | Sending Email`);
         return 0;
       });
       const mailOptions = {
@@ -149,7 +149,7 @@ router.post('/youla-crawl', (req, res) => {
         attachments: [
           {
             filename: `${search.query}_${milliseconds}.csv`,
-            path: `${homeDir}/${crawlerDir}/${search.query}_${milliseconds}.csv`,
+            path: `${homeDir}/${crawlerDir}/${milliseconds}.csv`,
             contentType: 'text/csv',
           },
         ],
