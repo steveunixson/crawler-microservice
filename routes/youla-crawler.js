@@ -55,7 +55,7 @@ router.post('/youla-crawl', (req, res) => {
   });
   const width = 1920;
   const height = 1050;
-  const homeDir = os.tmpdir();
+  const homeDir = os.homedir();
   const crawlerDir = 'youla-webgatherer';
 
   if (!fs.existsSync(`${homeDir}/${crawlerDir}/`)) {

@@ -57,7 +57,7 @@ router.post('/crawl', (req, res) => {
   const submitButton = '#module-1-3 > div.searchBar__forms > div > form > button.searchBar__submit._directory';
   const width = 1920;
   const height = 1050;
-  const homeDir = os.tmpdir();
+  const homeDir = os.homedir();
   const crawlerDir = '2gis-webgatherer';
 
   if (!fs.existsSync(`${homeDir}/${crawlerDir}/`)) {
