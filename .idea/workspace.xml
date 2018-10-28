@@ -4,8 +4,6 @@
     <list default="true" id="fc11e2b3-9bff-40a2-a806-947e43343eaa" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/javascripts/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/javascripts/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/generator.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/generator.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -50,7 +48,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="css" value="2" />
+          <entry key="css" value="3" />
           <entry key="eslintrc" value="1" />
           <entry key="gitignore" value="1" />
           <entry key="html" value="2" />
@@ -61,7 +59,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CSS" value="2" />
+          <entry key="CSS" value="3" />
           <entry key="HTML" value="2" />
           <entry key="JSON" value="4" />
           <entry key="JavaScript" value="20" />
@@ -71,18 +69,18 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="gitignore" value="12" />
-          <entry key="html" value="592" />
+          <entry key="html" value="749" />
           <entry key="js" value="7461" />
           <entry key="json" value="57" />
-          <entry key="txt" value="258" />
+          <entry key="txt" value="295" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="592" />
+          <entry key="HTML" value="749" />
           <entry key="JSON" value="57" />
           <entry key="JavaScript" value="7461" />
-          <entry key="PLAIN_TEXT" value="270" />
+          <entry key="PLAIN_TEXT" value="307" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts">
@@ -122,7 +120,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/generator.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="178">
@@ -140,11 +138,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="27" column="68" lean-forward="true" selection-start-line="27" selection-start-column="61" selection-end-line="27" selection-end-column="76" />
+            <state relative-caret-position="437">
+              <caret line="76" column="53" selection-start-line="76" selection-start-column="53" selection-end-line="76" selection-end-column="53" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/stylesheets/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="184">
+              <caret line="8" selection-start-line="8" selection-end-line="8" />
             </state>
           </provider>
         </entry>
@@ -191,9 +198,9 @@
         <option value="$PROJECT_DIR$/pm2.json" />
         <option value="$PROJECT_DIR$/routes/cron.js" />
         <option value="$PROJECT_DIR$/app.js" />
-        <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/public/javascripts/index.js" />
         <option value="$PROJECT_DIR$/routes/generator.js" />
+        <option value="$PROJECT_DIR$/public/index.html" />
       </list>
     </option>
   </component>
@@ -340,7 +347,7 @@
       <workItem from="1540709249697" duration="1452000" />
       <workItem from="1540719404665" duration="2894000" />
       <workItem from="1540722952189" duration="679000" />
-      <workItem from="1540738229484" duration="2043000" />
+      <workItem from="1540738229484" duration="3482000" />
     </task>
     <task id="LOCAL-00001" summary="added --no-sandbox">
       <created>1539726625737</created>
@@ -440,16 +447,31 @@
       <option name="project" value="LOCAL" />
       <updated>1540722996999</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="added random number generator web interface">
+      <created>1540740288562</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1540740288562</updated>
+    </task>
+    <task id="LOCAL-00016" summary="web interface to russian translation">
+      <created>1540741015050</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1540741015050</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="141466000" />
+    <option name="totallyTimeSpent" value="142905000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="50" y="-11" width="1871" height="1092" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27573133" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27573133" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -463,7 +485,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5005417" side_tool="true" weight="0.3301887" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.49945828" visible="true" weight="0.5157233" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49945828" weight="0.5157233" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -507,7 +529,10 @@
     <MESSAGE value="fixed headless" />
     <MESSAGE value="added cron" />
     <MESSAGE value="added random number generator" />
-    <option name="LAST_COMMIT_MESSAGE" value="added random number generator" />
+    <MESSAGE value="added random number generator web interface" />
+    <MESSAGE value="web interface to russian" />
+    <MESSAGE value="web interface to russian translation" />
+    <option name="LAST_COMMIT_MESSAGE" value="web interface to russian translation" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.gitignore">
@@ -538,13 +563,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pm2.json" />
     <entry file="file://$PROJECT_DIR$/cron.js" />
-    <entry file="file://$PROJECT_DIR$/public/stylesheets/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="138">
@@ -587,13 +605,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="27" column="68" lean-forward="true" selection-start-line="27" selection-start-column="61" selection-end-line="27" selection-end-column="76" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="155">
@@ -605,6 +616,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="178">
           <caret line="24" column="47" lean-forward="true" selection-start-line="24" selection-start-column="47" selection-end-line="24" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/stylesheets/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="76" column="53" selection-start-line="76" selection-start-column="53" selection-end-line="76" selection-end-column="53" />
         </state>
       </provider>
     </entry>
