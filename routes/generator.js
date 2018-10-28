@@ -26,6 +26,9 @@ router.post('/generate', (req, res) => {
   const code = { phoneCode: req.body.code };
   const serialNo = { Serial: req.body.serialNo };
   const email = { targetEmail: req.body.sendTo };
+  if (req.body.numbers === undefined || req.body.code === undefined || req.body.serialNo === undefined || req.body.sendTo === undefined) {
+    return res.status(400).json({ err: 1, msg: 'Bad request' });
+  }
   const items = [];
   for (i = 0; i < numbers.Number; i++) {
     items.push({ phoneNumber: `8${code.phoneCode}${serialNo.Serial}${Math.floor(1000 + Math.random() * 9000)}` });
@@ -74,5 +77,6 @@ router.post('/generate', (req, res) => {
       transporter.close();
     }
   });
+  return 0;
 });
 module.exports = router;

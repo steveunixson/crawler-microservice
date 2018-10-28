@@ -26,3 +26,18 @@ function postYoula() {
       console.log(error);
     });
 }
+
+function generatePhones() {
+  axios.post('/generate',  {
+    code: document.getElementById('generate-code').valueAsNumber,
+    numbers: document.getElementById('generate-number').valueAsNumber,
+    sendTo: document.getElementById('generate-email').value,
+    serialNo: document.getElementById('generate-serial').valueAsNumber,
+  })
+    .then((response) => {
+      console.log(response.data);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+}

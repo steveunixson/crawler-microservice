@@ -15,6 +15,33 @@
 
 <body>
 <div class="col-xs-1" align="center">
+  <a class="col-5">Generate</a>
+  <div class="form-group row">
+    <label for="generate-email" class="col-2 col-form-label">Email</label>
+    <div class="col-5">
+      <input class="form-control" type="email" value="" id="generate-email">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="generate-number" class="col-2 col-form-label">Quantity</label>
+    <div class="col-5">
+      <input class="form-control" type="number" value="" id="generate-number">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="generate-serial" class="col-2 col-form-label">Serial</label>
+    <div class="col-5">
+      <input class="form-control" type="number" value="" id="generate-serial">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="generate-code" class="col-2 col-form-label">Code</label>
+    <div class="col-5">
+      <input class="form-control" type="number" value="" id="generate-code">
+    </div>
+    <button type="button" onclick="generatePhones()" class="btn btn-primary">Start Crawltask</button>
+    <script src="javascripts/index.js"></script>
+  </div>
   <a class="col-5">2gis</a>
   <div class="form-group row">
     <label for="example-search-input" class="col-2 col-form-label">Wholesale</label>
@@ -67,6 +94,7 @@
     </div>
     <button type="button" onclick="postYoula()" class="btn btn-primary">Start Crawltask</button>
     <script src="javascripts/index.js"></script>
+    </div>
 </div>
 </body>
 
