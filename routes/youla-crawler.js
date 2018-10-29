@@ -64,7 +64,7 @@ router.post('/youla-crawl', (req, res) => {
   }
   const scrape = async () => {
     const browser = await puppeteer.launch({
-      headless: false,
+      headless: true,
       args: [
         `--window-size=${width},${height}`, '--no-sandbox', '--disable-setuid-sandbox',
       ],

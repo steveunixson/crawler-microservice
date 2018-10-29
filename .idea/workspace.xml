@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="fc11e2b3-9bff-40a2-a806-947e43343eaa" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/youla-crawler.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/youla-crawler.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/log.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/log.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -75,7 +73,7 @@
           <entry key="html" value="749" />
           <entry key="js" value="7554" />
           <entry key="json" value="57" />
-          <entry key="txt" value="300" />
+          <entry key="txt" value="322" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -83,7 +81,7 @@
           <entry key="HTML" value="749" />
           <entry key="JSON" value="57" />
           <entry key="JavaScript" value="7554" />
-          <entry key="PLAIN_TEXT" value="312" />
+          <entry key="PLAIN_TEXT" value="334" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts">
@@ -366,7 +364,7 @@
       <workItem from="1540722952189" duration="679000" />
       <workItem from="1540738229484" duration="4196000" />
       <workItem from="1540748231539" duration="50000" />
-      <workItem from="1540822865907" duration="1093000" />
+      <workItem from="1540822865907" duration="1341000" />
     </task>
     <task id="LOCAL-00001" summary="added --no-sandbox">
       <created>1539726625737</created>
@@ -487,11 +485,18 @@
       <option name="project" value="LOCAL" />
       <updated>1540741737657</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="added text format logs">
+      <created>1540824381238</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1540824381239</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="144762000" />
+    <option name="totallyTimeSpent" value="145010000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="40" y="-11" width="1881" height="1092" extended-state="6" />
@@ -558,7 +563,8 @@
     <MESSAGE value="added random number generator web interface" />
     <MESSAGE value="web interface to russian" />
     <MESSAGE value="web interface to russian translation" />
-    <option name="LAST_COMMIT_MESSAGE" value="web interface to russian translation" />
+    <MESSAGE value="added text format logs" />
+    <option name="LAST_COMMIT_MESSAGE" value="added text format logs" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.gitignore">
