@@ -108,7 +108,7 @@ router.post('/youla-crawl', (req, res) => {
             contactNumber: number,
           });
           const youla = new Youla({
-            _id: step,
+            id: step,
             contactName: name,
             contactNumber: number,
           });
