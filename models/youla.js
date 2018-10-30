@@ -14,6 +14,7 @@ const Schema = mongoose.Schema;
 
 const Youla = new Schema({
   contactName: { type: String },
+  id: { type: Number },
   contactNumber: { type: String, unique: true },
 }, { versionKey: false });
 

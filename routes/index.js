@@ -9,7 +9,7 @@ const opts = { fields };
 const router = express.Router();
 
 /* GET home page. */
-router.get('/youla-csv', (req, res) => {
+router.get('/youla', (req, res) => {
   const csvDownload = async () => {
     const dbData = await Youla.find((err, data) => data);
     const csv = await json2csv(dbData, opts);
