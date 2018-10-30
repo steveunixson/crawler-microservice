@@ -27,4 +27,5 @@ module.exports = {
       BgWhite: '\x1b[47m',
     },
   url: '/api/v2',
+  database: 'mongodb://localhost:27017/crawler-db',
 };

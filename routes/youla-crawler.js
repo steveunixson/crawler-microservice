@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 const express = require('express');
 const os = require('os');
 const fs = require('fs');
@@ -9,6 +10,7 @@ const json2csv = require('json2csv').parse;
 const fields = ['contactName', 'contactNumber'];
 const opts = { fields };
 const log = require('../utils/log')(module);
+const Youla = require('../models/youla');
 
 const transporter = nodemailer.createTransport({
   host: 'smtp.gmail.com',
@@ -104,6 +106,16 @@ router.post('/youla-crawl', (req, res) => {
           items.push({
             contactName: name,
             contactNumber: number,
+          });
+          const youla = new Youla({
+            _id: step,
+            contactName: name,
+            contactNumber: number,
+          });
+          youla.save((err) => {
+            if (err) {
+              log.error(`EXCEPTION CAUGHT WHILE SAVING TO DB: ${err}`);
+            }
           });
         } catch (exception) {
           const Url = { url: pageNew.url() };

@@ -12,6 +12,7 @@ const crawler = require('./routes/crawler');
 const youlaCrawler = require('./routes/youla-crawler');
 const cron = require('./routes/cron');
 const generate = require('./routes/generator');
+const index = require('./routes/index');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -38,6 +39,7 @@ app.use(crawler);
 app.use(youlaCrawler);
 app.use(cron);
 app.use(generate);
+app.use(index);
 app.use(express.static(path.join(__dirname, 'public')));
 app.listen(port, () => {
   log.info(config.colors.FgMagenta, `Bonobo 2gis gather now Running On : http://${ip.address()}:${port}`);
