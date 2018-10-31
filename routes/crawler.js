@@ -10,6 +10,7 @@ const fields = ['phoneNumber', 'companyName', 'address', 'city', 'site'];
 const opts = { fields };
 const URL = require('url');
 const log = require('../utils/log')(module);
+const Twogis = require('../models/twogis');
 
 const transporter = nodemailer.createTransport({
   host: 'smtp.gmail.com',
@@ -131,6 +132,18 @@ router.post('/crawl', (req, res) => {
             if (await pageNew.$('div.contact__websites') !== null) {
               const webSite = await pageNew.$eval('div.contact__websites', anchor => anchor.lastElementChild.innerText);
               await log.debug(`DEBUG: ${webSite}`);
+              const twogis = new Twogis({
+                phoneNumber: phone,
+                companyName: name,
+                address: Address,
+                city: URLLocation.pathname.replace(/\d/g, '').split('/firm/').join(''),
+                site: webSite,
+              });
+              twogis.save((err) => {
+                if (err) {
+                  log.error(`EXCEPTION CAUGHT WHILE SAVING TO DB: ${err}`);
+                }
+              });
               items.push({
                 phoneNumber: phone,
                 companyName: name,
@@ -139,6 +152,18 @@ router.post('/crawl', (req, res) => {
                 site: webSite,
               });
             } else {
+              const twogis = new Twogis({
+                phoneNumber: phone,
+                companyName: name,
+                address: Address,
+                city: URLLocation.pathname.replace(/\d/g, '').split('/firm/').join(''),
+                site: 'Not found',
+              });
+              twogis.save((err) => {
+                if (err) {
+                  log.error(`EXCEPTION CAUGHT WHILE SAVING TO DB: ${err}`);
+                }
+              });
               items.push({
                 phoneNumber: phone,
                 companyName: name,

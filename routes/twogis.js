@@ -1,23 +1,22 @@
 const express = require('express');
 const json2csv = require('json2csv').parse;
 
-const Youla = require('../models/youla');
-
-const fields = ['contactName', 'contactNumber'];
+const fields = ['phoneNumber', 'companyName', 'address', 'city', 'site'];
 const opts = { fields };
+
+const Twogis = require('../models/twogis');
 
 const router = express.Router();
 
-/* GET home page. */
-router.get('/youla', (req, res) => {
+router.get('/twogis', (req, res) => {
   const csvDownload = async () => {
-    const dbData = await Youla.find((err, data) => data);
+    const dbData = await Twogis.find((err, data) => data);
     const csv = await json2csv(dbData, opts);
     return csv;
   };
   csvDownload()
     .then((csv) => {
-      res.setHeader('Content-disposition', 'attachment; filename=youla.csv');
+      res.setHeader('Content-disposition', 'attachment; filename=2gis.csv');
       res.set('Content-Type', 'text/csv');
       res.status(200).send(csv);
     })
