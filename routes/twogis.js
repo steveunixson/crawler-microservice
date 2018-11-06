@@ -1,7 +1,7 @@
 const express = require('express');
 const json2csv = require('json2csv').parse;
 
-const fields = ['phoneNumber', 'companyName', 'address', 'city', 'site'];
+const fields = ['id', 'phoneNumber', 'companyName', 'address', 'city', 'site'];
 const opts = { fields };
 
 const Twogis = require('../models/twogis');

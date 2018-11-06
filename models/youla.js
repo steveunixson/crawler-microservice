@@ -13,8 +13,8 @@ mongoose.connect(config.database, { useNewUrlParser: true })
 const Schema = mongoose.Schema;
 
 const Youla = new Schema({
-  contactName: { type: String },
   id: { type: Number },
+  contactName: { type: String },
   contactNumber: { type: String, unique: true },
 }, { versionKey: false });
 

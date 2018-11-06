@@ -1,3 +1,4 @@
+/* eslint-disable no-await-in-loop,no-loop-func,no-plusplus */
 const express = require('express');
 const os = require('os');
 const fs = require('fs');
@@ -8,7 +9,6 @@ const json2csv = require('json2csv').parse;
 
 const fields = ['phoneNumber', 'companyName', 'address', 'city', 'site'];
 const opts = { fields };
-const URL = require('url');
 const log = require('../utils/log')(module);
 const Twogis = require('../models/twogis');
 
@@ -97,6 +97,10 @@ router.post('/crawl', (req, res) => {
     }
     await page.waitFor(1000);
     const items = [];
+    let callID = 0;
+    function inc() {
+      return callID++;
+    };
 
     try {
       await page.waitForSelector('div.pagination__arrow._right');
@@ -122,22 +126,24 @@ router.post('/crawl', (req, res) => {
             await pageNew.waitForSelector('address.card__address');
             await pageNew.waitForSelector('div.contact__toggle._place_phones');
             await pageNew.click('div.contact__toggle._place_phones');
-            const number = await pageNew.evaluate(() => document.getElementsByClassName('contact__phones _shown')[0].innerText);
-            const phone = number.replace(/(\r\n\t|\n|\r\t)/gm, ' ', ' ').split('Пожалуйста, скажите, что узнали номер в 2ГИС').join('');
+            const Phone = await pageNew.evaluate(() => document.getElementsByClassName('contact__phones _shown')[0].children[1].children[0].children[1].innerText);
             const name = await pageNew.evaluate(() => document.querySelector('h1.cardHeader__headerNameText').innerText);
             const Address = await pageNew.evaluate(() => document.querySelector('address.card__address').innerText);
+            const City = await pageNew.evaluate(() => document.querySelector('.card__addressDrilldown._purpose_drilldown').innerText);
             const Url = { url: pageNew.url() };
             const unixTime = new Date().getTime();
-            const URLLocation = URL.parse(Url.url, true);
             if (await pageNew.$('div.contact__websites') !== null) {
               const webSite = await pageNew.$eval('div.contact__websites', anchor => anchor.lastElementChild.innerText);
               await log.debug(`DEBUG: ${webSite}`);
+              await log.debug(`STEP: ${step}`);
               const twogis = new Twogis({
-                phoneNumber: phone,
+                id: inc(),
+                phoneNumber: Phone,
                 companyName: name,
                 address: Address,
-                city: URLLocation.pathname.replace(/\d/g, '').split('/firm/').join(''),
+                city: City,
                 site: webSite,
+                search: search.query,
               });
               twogis.save((err) => {
                 if (err) {
@@ -145,19 +151,21 @@ router.post('/crawl', (req, res) => {
                 }
               });
               items.push({
-                phoneNumber: phone,
+                phoneNumber: Phone,
                 companyName: name,
                 address: Address,
-                city: URLLocation.pathname.replace(/\d/g, '').split('/firm/').join(''),
+                city: City,
                 site: webSite,
               });
             } else {
               const twogis = new Twogis({
-                phoneNumber: phone,
+                id: inc(),
+                phoneNumber: Phone,
                 companyName: name,
                 address: Address,
-                city: URLLocation.pathname.replace(/\d/g, '').split('/firm/').join(''),
+                city: City,
                 site: 'Not found',
+                search: search.query,
               });
               twogis.save((err) => {
                 if (err) {
@@ -165,10 +173,10 @@ router.post('/crawl', (req, res) => {
                 }
               });
               items.push({
-                phoneNumber: phone,
+                phoneNumber: Phone,
                 companyName: name,
                 address: Address,
-                city: URLLocation.pathname.replace(/\d/g, '').split('/firm/').join(''),
+                city: City,
                 site: 'Not found',
               });
             }
