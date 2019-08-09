@@ -7,7 +7,7 @@ const ps = require('ps-node');
 const nodemailer = require('nodemailer');
 const json2csv = require('json2csv').parse;
 
-const fields = ['phoneNumber', 'companyName', 'address', 'city', 'site'];
+const fields = ['phoneNumber', 'companyName', 'address', 'city', 'site', 'tags', 'hours'];
 const opts = { fields };
 const log = require('../utils/log')(module);
 const Twogis = require('../models/twogis');
@@ -66,9 +66,16 @@ router.post('/crawl', (req, res) => {
     log.info(`Created directory: ${homeDir}/${crawlerDir}/`);
   }
 
+  /* Тамбов
+  Курск
+  Орёл
+  Брянск
+  Калуга
+  Владимир
+  Великий Новгород */
   const scrape = async () => {
     const browser = await puppeteer.launch({
-      headless: true,
+      headless: false,
       args: [
         `--window-size=${width},${height}`, '--no-sandbox', '--disable-setuid-sandbox',
       ],
@@ -130,6 +137,8 @@ router.post('/crawl', (req, res) => {
             const name = await pageNew.evaluate(() => document.querySelector('h1.cardHeader__headerNameText').innerText);
             const Address = await pageNew.evaluate(() => document.querySelector('address.card__address').innerText);
             const City = await pageNew.evaluate(() => document.querySelector('.card__addressDrilldown._purpose_drilldown').innerText);
+            const Tags = await pageNew.evaluate(() => document.querySelector('.cardRubrics').innerText);
+            const workHours = await pageNew.evaluate(() => document.querySelector('.schedule._context_firmCard._state_collapsed').children[0].innerText);
             const Url = { url: pageNew.url() };
             const unixTime = new Date().getTime();
             if (await pageNew.$('div.contact__websites') !== null) {
@@ -144,6 +153,8 @@ router.post('/crawl', (req, res) => {
                 city: City,
                 site: webSite,
                 search: search.query,
+                tags: Tags,
+                hours: workHours,
               });
               twogis.save((err) => {
                 if (err) {
@@ -156,6 +167,8 @@ router.post('/crawl', (req, res) => {
                 address: Address,
                 city: City,
                 site: webSite,
+                tags: Tags,
+                hours: workHours,
               });
             } else {
               const twogis = new Twogis({
@@ -166,6 +179,8 @@ router.post('/crawl', (req, res) => {
                 city: City,
                 site: 'Not found',
                 search: search.query,
+                tags: Tags,
+                hours: workHours,
               });
               twogis.save((err) => {
                 if (err) {
@@ -178,6 +193,8 @@ router.post('/crawl', (req, res) => {
                 address: Address,
                 city: City,
                 site: 'Not found',
+                tags: Tags,
+                hours: workHours,
               });
             }
             await pageNew.screenshot({ path: `${homeDir}/${crawlerDir}/auto_${unixTime}.screenshot.jpeg`, type: 'jpeg', quality: 50 });

@@ -20,6 +20,8 @@ const Twogis = new Schema({
   city: { type: String },
   site: { type: String },
   search: { type: String },
+  tags: { type: String },
+  hours: { type: String },
 }, { versionKey: false });
 
 const TwogisModel = mongoose.model('Twogis', Twogis);
