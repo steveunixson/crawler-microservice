@@ -23,7 +23,7 @@
     "nodemailer": "^4.6.8",
     "phone": "^2.2.0",
     "ps-node": "^0.1.6",
-    "puppeteer": "^1.9.0",
+    "puppeteer": "^1.13.0",
     "querystring": "^0.2.0",
     "save-to-mongo": "^1.0.0",
     "winston": "^2.4.2"
