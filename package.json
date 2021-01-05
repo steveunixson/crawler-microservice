@@ -7,7 +7,7 @@
     "lint": "./node_modules/.bin/eslint ."
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "body-parser": "latest",
     "cookie-parser": "~1.4.3",
     "csv-express": "^1.2.2",
